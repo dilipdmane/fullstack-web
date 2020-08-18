@@ -1,3 +1,10 @@
-require("http").createServer((inRequest, inResponse) => {
-	inResponse.end("Hello This is my first ndoe project after many attempt");
-}).listen(9094);
+var express = require('express');
+var app = express();
+var path = require('path');
+
+// viewed at http://localhost:8080
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname + '/demo.html'));
+});
+
+app.listen(8080);
