@@ -19,7 +19,7 @@ function start() {
         style: this.titleStyle
       }, this.title), /*#__PURE__*/React.createElement("a", {
         href: this.props.href
-      }, this.props.descriptions), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("button", {
+      }, this.props.descriptions || unknosn), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("button", {
         onClick: () => {
           this.title = this.title + "-Changed..";
           this.setState({});
@@ -35,6 +35,9 @@ function start() {
     descriptions: "Not Applicable"
   });
 
+  Bookmark.propTypes = {
+    descriptions: PropTypes.number
+  };
   ReactDOM.render( /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Bookmarks"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement(Bookmark, {
     title: "Etherient",
     href: "https://www.etherient.com",

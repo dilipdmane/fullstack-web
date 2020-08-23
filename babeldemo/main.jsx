@@ -6,6 +6,7 @@ function start(){
       console.log("Bookmark Component created");
     }
     static defaultProps ={ descriptions:"Not Applicable"};
+    //static propTypes ={ descriptions : PropTypes.number};
     title = this.props.title;
     titleStyle = {color:"red"};
 
@@ -27,6 +28,8 @@ function start(){
       );
     }// end of render
   }//end of class Bookmark
+
+  Bookmark.propTypes = { descriptions:PropTypes.number};
 
   ReactDOM.render(
     <div>
