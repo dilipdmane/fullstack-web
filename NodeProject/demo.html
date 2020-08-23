@@ -4,26 +4,51 @@
 <meta charset="UTF-8"/>
 <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<style>
+h2{
+	color: red;
+}
+
+</style>
 <script>
 function start(){
 
 
 class Bookmark extends React.Component
 	{
+		constructor(props)
+		{
+			super(props);
+			console.log("React Componenet created ....");
+			this.title = this.props.title;
+			
+			
+			
+		}
 		render(){
 			return(React.createElement("li",{},
-			React.createElement("h2",{},this.props.title),
+			React.createElement("h2",{},this.title),
 			React.createElement("a",{href:this.props.href},this.props.description),
+			React.createElement("br",{}),
+			React.createElement("button",{
+				onClick:() => {
+					console.log("Clicked....button")
+					this.title = this.title + "-Changed";
+					this.setState({});
+				}
+			},"Click me")
 			)
 			);
 		}
 	}
 	
+	
+	
 	const rootElement = React.createElement("div",{},
 	React.createElement("h1",{},"Bookmaks",
 	React.createElement("ul",{},
 		React.createElement(Bookmark,{title:"Gmail",description:"Click Here",href:"https://www.gmail.com"}),
-		React.createElement(Bookmark,{title:"Music",description:"Click Here",href:"https://www.etherient.com"})
+		React.createElement(Bookmark,{title:"Full Stack Project",description:"Click Here",href:"https://github.com/dilipdmane/fullstack-web/tree/master/NodeProject"})
 		))
 	);
 	

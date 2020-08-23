@@ -7,23 +7,40 @@
 <script>
 function start(){
 
-	
-	const rootElement = React.createElement("div",{},
-	React.createElement("h1",{},"Bookmaks",
-	React.createElement("ul",{},React.createElement(Bookmark,{title:"Entertainment",description:"Click Here",href:"https://www.etherient.com"})))
-	);
-	
-	
-	class Bookmark extends React.Component
+
+class Bookmark extends React.Component
 	{
+		constructor(props)
+		{
+			super(props);
+			Console.log("React Componenet created ....");
+			this.title = this.props.title;
+			
+			
+			
+		}
 		render(){
 			return(React.createElement("li",{},
 			React.createElement("h2",{},this.props.title),
 			React.createElement("a",{href:this.props.href},this.props.description),
+			React
 			)
 			);
 		}
 	}
+	
+	
+	
+	const rootElement = React.createElement("div",{},
+	React.createElement("h1",{},"Bookmaks",
+	React.createElement("ul",{},
+		React.createElement(Bookmark,{title:"Gmail",description:"Click Here",href:"https://www.gmail.com"}),
+		React.createElement(Bookmark,{title:"Full Stack Project",description:"Click Here",href:"https://github.com/dilipdmane/fullstack-web/tree/master/NodeProject"})
+		))
+	);
+	
+	
+	
 	 ReactDOM.render(rootElement,
           document.getElementById("mainContainer")
         );

@@ -6,12 +6,14 @@
   "dependencies": {
     "express": "^4.17.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.4"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-	"start": "node server_time.js"
+    "start": "node server_time.js"
   },
   "author": "Dilip Mane",
   "license": "ISC"
-	
 }
