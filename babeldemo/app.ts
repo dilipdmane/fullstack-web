@@ -1,6 +1,7 @@
 function sayHi(humanName:string)
 {
-    alert('Hi, ${humanName}');
+    alert(`Hi ${humanName} Compiled with Typescript complier It's fun!  `)
+    console.log(`${humanName}...`)
 }
 
-sayHi('Dilip Mane');
+sayHi( 'React ');
