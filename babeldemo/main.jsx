@@ -15,7 +15,7 @@ function start(){
       return (
         <li>
         <h2 style={this.titleStyle}>{this.title}</h2>
-        <a href={this.props.href}>{this.props.descriptions || unknosn}</a>
+        <a href={this.props.href}>{this.props.descriptions || unknown}</a>
         <br></br>
         <button onClick={ ()=> {
           this.title = this.title + "-Changed..";
