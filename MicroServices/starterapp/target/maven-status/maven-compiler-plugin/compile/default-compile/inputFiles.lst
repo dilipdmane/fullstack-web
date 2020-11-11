@@ -1,5 +1,12 @@
-/home/jyodak/SpringMicroservices/Workspaces/starterapp/src/main/java/com/vibhuti/basic/domain/Restaurant.java
-/home/jyodak/SpringMicroservices/Workspaces/starterapp/src/main/java/com/vibhuti/basic/domain/core/BaseEntity.java
-/home/jyodak/SpringMicroservices/Workspaces/starterapp/src/main/java/com/vibhuti/basic/starterapp/App.java
-/home/jyodak/SpringMicroservices/Workspaces/starterapp/src/main/java/com/vibhuti/basic/domain/core/Entity.java
-/home/jyodak/SpringMicroservices/Workspaces/starterapp/src/main/java/com/vibhuti/basic/domain/Table.java
+/home/jyodak/git/fullstack-web/MicroServices/starterapp/src/main/java/com/vibhuti/basic/domain/core/repository/ReadOnlyRepository.java
+/home/jyodak/git/fullstack-web/MicroServices/starterapp/src/main/java/com/vibhuti/basic/domain/Table.java
+/home/jyodak/git/fullstack-web/MicroServices/starterapp/src/main/java/com/vibhuti/basic/domain/core/service/ReadOnlyBaseService.java
+/home/jyodak/git/fullstack-web/MicroServices/starterapp/src/main/java/com/vibhuti/basic/starterapp/App.java
+/home/jyodak/git/fullstack-web/MicroServices/starterapp/src/main/java/com/vibhuti/basic/domain/core/BaseEntity.java
+/home/jyodak/git/fullstack-web/MicroServices/starterapp/src/main/java/com/vibhuti/basic/domain/core/repository/Repository.java
+/home/jyodak/git/fullstack-web/MicroServices/starterapp/src/main/java/com/vibhuti/basic/domain/core/service/BaseService.java
+/home/jyodak/git/fullstack-web/MicroServices/starterapp/src/main/java/com/vibhuti/basic/domain/Restaurant.java
+/home/jyodak/git/fullstack-web/MicroServices/starterapp/src/main/java/com/vibhuti/basic/domain/core/Entity.java
+/home/jyodak/git/fullstack-web/MicroServices/starterapp/src/main/java/com/vibhuti/basic/domain/InMemRestaurantRepository.java
+/home/jyodak/git/fullstack-web/MicroServices/starterapp/src/main/java/com/vibhuti/basic/domain/RestaurantService.java
+/home/jyodak/git/fullstack-web/MicroServices/starterapp/src/main/java/com/vibhuti/basic/domain/RestaurantRepository.java

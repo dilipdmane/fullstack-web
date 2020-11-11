@@ -1,5 +1,12 @@
-com/vibhuti/basic/domain/core/BaseEntity.class
+com/vibhuti/basic/domain/RestaurantRepository.class
 com/vibhuti/basic/domain/Table.class
+com/vibhuti/basic/domain/RestaurantService.class
 com/vibhuti/basic/domain/core/Entity.class
+com/vibhuti/basic/domain/core/service/BaseService.class
 com/vibhuti/basic/domain/Restaurant.class
+com/vibhuti/basic/domain/core/repository/Repository.class
+com/vibhuti/basic/domain/InMemRestaurantRepository.class
+com/vibhuti/basic/domain/core/BaseEntity.class
+com/vibhuti/basic/domain/core/service/ReadOnlyBaseService.class
+com/vibhuti/basic/domain/core/repository/ReadOnlyRepository.class
 com/vibhuti/basic/starterapp/App.class
