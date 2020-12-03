@@ -100,5 +100,6 @@
 
 	<modules>
 		<module>restaurantservice</module>
+		<module>booking-service</module>
 	</modules>
 </project>
