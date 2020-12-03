@@ -1,0 +1,8 @@
+#Spring Properties
+
+spring:
+  cloud:
+   discovery:
+   enabled:   false
+  aop:
+    auto: false

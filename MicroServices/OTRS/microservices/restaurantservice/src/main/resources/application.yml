@@ -1,0 +1,20 @@
+# Spring properties
+spring:
+  application:
+    name: restaurant-service  # Service registers under this name
+  messages:
+    fallback-to-system-locale: false
+  profiles : docker
+  
+# HTTP Server
+server:
+  port: 8080   # HTTP (Tomcat) port
+   
+  
+  
+
+ 
+    
+    
+
+ 
