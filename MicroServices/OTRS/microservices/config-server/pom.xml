@@ -3,32 +3,33 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
-	<groupId>com.vibhuti</groupId>
-	<artifactId>booking-service</artifactId>
-	<version>0.0.1-booking-service-SNAPSHOT</version>
-	<name>booking-service</name>
-	<description>Webservice for booking online table </description>
 	<parent>
 		<groupId>com.vibhu.demo</groupId>
 		<artifactId>microservices</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath></relativePath>
 	</parent>
+	<groupId>com.vibhuti</groupId>
+	<artifactId>config-server</artifactId>
+	<version>0.0.1-config-server-SNAPSHOT</version>
+	<name>config-server</name>
+	<description>Configuration Server</description>
 
 	<properties>
 		<java.version>11</java.version>
-		<start-class>com.otrs.booking.BookingServiceApplication</start-class>
+		<spring-cloud.version>2020.0.0-M6</spring-cloud.version>
+		<start-class>com.otrs.restaurant.ConfigServerApplication</start-class>
 		<docker.registry.name>localhost:5000/</docker.registry.name>
 		<docker.repository.name>${docker.registry.name}dilipwork/${project.artifactId}</docker.repository.name>
 		<docker.host.address>192.168.99.100</docker.host.address>
-		<docker.port>8081</docker.port>
+		<docker.port>8088</docker.port>
+
 	</properties>
 
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-config-server</artifactId>
 		</dependency>
 
 		<dependency>
@@ -36,24 +37,24 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-annotations</artifactId>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<!--<exclusions> -->
+			<!--<exclusion> -->
+			<!--<groupId>org.apache.tomcat</groupId> -->
+			<!--<artifactId>tomcat-jdbc</artifactId> -->
+			<!--</exclusion> -->
+			<!--</exclusions> -->
 		</dependency>
+		<!--<dependency> <groupId>com.zaxxer</groupId> <artifactId>HikariCP</artifactId> 
+			</dependency> -->
 		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.datatype</groupId>
-			<artifactId>jackson-datatype-jsr310</artifactId>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -94,7 +95,7 @@
 								</ports>
 								<cmd>
 									<shell>
-										java -Dspring.profiles.active="docker" -jar \
+										java -Dspring.profiles.active="jdbc" -jar \
 										/maven/${project.build.finalName}.jar server \
 										/maven/docker-config.yml
 									</shell>
@@ -104,12 +105,12 @@
 								<namingStrategy>alias</namingStrategy>
 								<ports>
 									<port>
-										${docker.port}:8080
+										${docker.port}:8088
 									</port>
 								</ports>
 								<wait>
 									<http>
-										<url>http://${docker.host.address}:${docker.port}/v1/booking/1</url>
+										<url>http://${docker.host.address}:${docker.port}/</url>
 									</http>
 									<time>500000</time>
 								</wait>
@@ -148,34 +149,14 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-failsafe-plugin</artifactId>
-				<configuration>
-					<phase>integration-test</phase>
-					<groups>com.otrs.restaurant.resources.docker.DockerIT</groups>
-					<systemPropertyVariables>
-						<service.url>http://${docker.host.address}:${docker.port}/</service.url>
-					</systemPropertyVariables>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>integration-test</goal>
-							<goal>verify</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<configuration>
-					<excludedGroups>com.otrs.restaurant.booking.resources.docker</excludedGroups>
-				</configuration>
-			</plugin>
 		</plugins>
 	</build>
 
+	<repositories>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+		</repository>
+	</repositories>
 </project>

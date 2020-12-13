@@ -1,0 +1,45 @@
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: 'env, refresh'
+
+server:
+  port: 8088
+  
+  
+---
+spring:
+  profiles:
+    active: jdbc
+---
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      label: master
+#      server:
+#        bootstrap:  false
+#        git:
+#          uri: 
+#          uri: https://github.com/dilipdmane/config-repo.git                              
+  datasource:
+    continue-on-error: true
+#    schema: classpath:schema.sql
+#    data: classpath:data-config.sql
+#    url: jdbc:h2:mem:config
+#    driver-class-name: org.h2.Driver
+#    username: sa
+#    password:
+    initialization-mode: always
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+   

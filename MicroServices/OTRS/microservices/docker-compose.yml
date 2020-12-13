@@ -1,9 +1,23 @@
 version: '3'
 services:
+  eureka:
+    image: localhost:5000/dilipwork/eureka-server:0.0.1-eureka-server-SNAPSHOT
+    ports:
+      - "8761:8761"
+
+  config:
+    image: localhost:5000/dilipwork/config-server:0.0.1-config-server-SNAPSHOT
+    ports:
+      - "8088:8088"
+      
   restaurant-service:
     image: localhost:5000/dilipwork/restaurantservice:0.0.1-restaurantservice-SNAPSHOT
+    restart: on-failure
     ports:
       - "8080:8080"
+    depends_on :
+      - eureka
+      - config
       
   booking-service:
     image: localhost:5000/dilipwork/booking-service:0.0.1-booking-service-SNAPSHOT

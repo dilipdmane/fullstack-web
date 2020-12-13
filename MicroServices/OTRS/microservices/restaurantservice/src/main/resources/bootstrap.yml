@@ -1,0 +1,24 @@
+#management:
+#  security:
+#    enabled: false
+    
+---
+
+spring:
+  profiles: jdbc
+  cloud :
+    config :
+      uri: http://localhost:8888
+      fail-fast: false
+      label: master   
+
+---
+spring:
+  profiles: docker
+  aop:
+    auto: false
+  cloud :
+    config :
+      uri: http://localhost:8888
+      fail-fast: false
+      label: master
