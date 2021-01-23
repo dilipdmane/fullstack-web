@@ -101,5 +101,7 @@
 	<modules>
 		<module>restaurantservice</module>
 		<module>booking-service</module>
+		<module>config-server</module>
+		<module>eureka-server</module>
 	</modules>
 </project>

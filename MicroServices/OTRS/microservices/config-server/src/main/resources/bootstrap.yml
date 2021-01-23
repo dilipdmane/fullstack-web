@@ -6,6 +6,7 @@
 
 server:
   port: 8088
+  connection-timeout: -1
   
   
 ---

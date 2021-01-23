@@ -6,9 +6,9 @@ spring:
     fallback-to-system-locale: false
   cloud :
     config :
-      uri: http://localhost:8888
-      fail-fast: false
-      label: master
+      uri : http://localhost:8088
+      fail-fast : false
+      label : master
   profiles : docker
   
 app:
@@ -19,7 +19,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: refresh
+        include: "refresh"
    
   
  #Discoveryu Server Access

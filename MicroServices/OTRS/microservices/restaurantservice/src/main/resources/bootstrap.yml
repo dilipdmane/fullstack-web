@@ -8,7 +8,7 @@ spring:
   profiles: jdbc
   cloud :
     config :
-      uri: http://localhost:8888
+      uri: http://localhost:8088
       fail-fast: false
       label: master   
 
@@ -19,6 +19,6 @@ spring:
     auto: false
   cloud :
     config :
-      uri: http://localhost:8888
-      fail-fast: false
+      uri: http://192.168.99.100:8088
+      fail-fast: true
       label: master
