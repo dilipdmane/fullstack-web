@@ -1,0 +1,47 @@
+
+
+
+UPDATE PROPERTIES  SET VALUE ='Docker Welcome to Config Serverice' WHERE APPLICATION = 'restaurant-service' and profile='docker'
+Update config files
+curl -X POST http://192.168.99.100:8080/actuator/refresh -H 'Content-Type: application/json'
+% Total % Received % Xferd Average Speed Time Time Time Current                                 Dload Upload Total Spent Left Speed100 2 0 2 0 0 0 0 --:--:-- 0:00:03 --:--:-- 0 ["app.greet.msg"]
+
+http://192.168.99.100:8088/RESTAURANT-SERVICE/docker/master
+
+
+start docker host
+
+docker-machine start
+
+
+
+Clean package project 
+mvn clean package
+
+H2-Console login page
+http://192.168.99.100:8088/h2-console/
+
+jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false
+
+build docker images
+mvn docker:build
+
+TO setup docker-host in docker
+docker-machine env
+
+
+
+
+http://192.168.99.100:8080/application/version
+
+
+
+AWS _ECS DockerSample
+https://medium.com/@Elabor8/a-complete-spring-boot-microservice-build-pipeline-using-gitlab-aws-and-docker-part-1-4540e80700ce
+
+docker run -p--detach 8000:8000 amazon/dynamodb-local
+
+
+sudo ln -s /opt/apache-maven-3.9.0 /opt/maven
+
+docker run -d -p 8765:8765 0.0.1-zuul-server-SNAPSHOT
