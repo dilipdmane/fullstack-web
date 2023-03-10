@@ -4,9 +4,12 @@
 spring:
   application:
     name: zuul-server  # Service registers under this name
+  main:
+    allow-bean-definition-overriding: true
   messages:
     fallback-to-system-locale: false
   profiles : docker
+  
 
 management:
   endpoint:

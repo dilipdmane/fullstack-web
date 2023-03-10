@@ -18,6 +18,8 @@ docker-machine start
 Clean package project 
 mvn clean package
 
+mvn clean package -Dmaven.test.skip=true
+
 H2-Console login page
 http://192.168.99.100:8088/h2-console/
 
@@ -39,9 +41,274 @@ http://192.168.99.100:8080/application/version
 AWS _ECS DockerSample
 https://medium.com/@Elabor8/a-complete-spring-boot-microservice-build-pipeline-using-gitlab-aws-and-docker-part-1-4540e80700ce
 
-docker run -p--detach 8000:8000 amazon/dynamodb-local
+docker run -p--detach8000:8000 amazon/dynamodb-local
 
 
 sudo ln -s /opt/apache-maven-3.9.0 /opt/maven
 
-docker run -d -p 8765:8765 0.0.1-zuul-server-SNAPSHOT
+docker run  -d -p 8765:8765  --name zuul-server localhost:5000/dilipwork/zuul-server:0.0.1-zuul-server-SNAPSHOT
+
+curl -X GET 'http://localhost:8765/restaurantapi/v1/restaurants?name=o'
+
+
+
+
+
+
+2023-03-10T03:26:31.473855712Z 2023-03-10 03:26:31.463  INFO 6 --- [           main] o.s.core.annotation.AnnotationUtils      : Failed to introspect annotations on class org.springframework.cloud.netflix.eureka.config.EurekaDiscoveryClientConfigServiceBootstrapConfiguration: java.lang.IllegalStateException: Could not obtain annotation attribute value for public abstract java.lang.Class[] org.springframework.boot.autoconfigure.condition.ConditionalOnClass.value()
+2023-03-10T03:26:32.943150294Z 2023-03-10 03:26:32.942  INFO 6 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'configurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$acd60c5d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-03-10T03:26:34.415929222Z 
+2023-03-10T03:26:34.420481715Z   .   ____          _            __ _ _
+2023-03-10T03:26:34.420641678Z  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+2023-03-10T03:26:34.420744110Z ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+2023-03-10T03:26:34.420844961Z  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+2023-03-10T03:26:34.420958704Z   '  |____| .__|_| |_|_| |_\__, | / / / /
+2023-03-10T03:26:34.421092519Z  =========|_|==============|___/=/_/_/_/
+2023-03-10T03:26:34.422040436Z  :: Spring Boot ::             (v2.1.0.M4)
+2023-03-10T03:26:34.422506323Z 
+2023-03-10T03:26:34.461946164Z 2023-03-10 03:26:34.461  INFO 6 --- [           main] com.otrs.ZuulServerApplication           : The following profiles are active: docker
+2023-03-10T03:26:40.103374127Z 2023-03-10 03:26:40.103  INFO 6 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e676add7-7e74-3809-b806-660bb4010565
+2023-03-10T03:26:41.277173641Z 2023-03-10 03:26:41.276  INFO 6 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$acd60c5d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-03-10T03:26:43.088444671Z 2023-03-10 03:26:43.088  INFO 6 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8765 (http)
+2023-03-10T03:26:43.186555998Z 2023-03-10 03:26:43.186  INFO 6 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-10T03:26:43.186979257Z 2023-03-10 03:26:43.186  INFO 6 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2023-03-10T03:26:43.213331357Z 2023-03-10 03:26:43.212  INFO 6 --- [           main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib]
+2023-03-10T03:26:43.459320844Z 2023-03-10 03:26:43.458  INFO 6 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-10T03:26:43.460787072Z 2023-03-10 03:26:43.460  INFO 6 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 8909 ms
+2023-03-10T03:26:44.124786125Z 2023-03-10 03:26:44.124  WARN 6 --- [           main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2023-03-10T03:26:44.125002385Z 2023-03-10 03:26:44.124  INFO 6 --- [           main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2023-03-10T03:26:44.180406263Z 2023-03-10 03:26:44.180  INFO 6 --- [           main] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@55120f99
+2023-03-10T03:26:46.102936372Z 2023-03-10 03:26:46.100 ERROR 6 --- [           main] o.s.b.web.embedded.tomcat.TomcatStarter  : Error starting Tomcat context. Exception: org.springframework.beans.factory.BeanCreationException. Message: Error creating bean with name 'servletEndpointRegistrar' defined in class path resource [org/springframework/boot/actuate/autoconfigure/endpoint/web/ServletEndpointManagementContextConfiguration$WebMvcServletEndpointManagementContextConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar]: Factory method 'servletEndpointRegistrar' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'routesEndpoint' defined in class path resource [org/springframework/cloud/netflix/zuul/ZuulProxyAutoConfiguration$EndpointConfiguration.class]: Unsatisfied dependency expressed through method 'routesEndpoint' parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'primaryRouteLocator' defined in class path resource [org/springframework/cloud/netflix/zuul/ZuulProxyAutoConfiguration.class]: Unsatisfied dependency expressed through method 'primaryRouteLocator' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'discoveryRouteLocator' defined in class path resource [org/springframework/cloud/netflix/zuul/ZuulProxyAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.cloud.netflix.zuul.filters.discovery.DiscoveryClientRouteLocator]: Factory method 'discoveryRouteLocator' threw exception; nested exception is java.lang.NoSuchMethodError: 'java.lang.String org.springframework.boot.autoconfigure.web.ServerProperties$Servlet.getServletPrefix()'
+2023-03-10T03:26:46.177875292Z 2023-03-10 03:26:46.177  INFO 6 --- [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-03-10T03:26:46.194729228Z 2023-03-10 03:26:46.194  WARN 6 --- [           main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [spring.cloud.inetutils] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-03-10T03:26:46.194758580Z  java.base@11.0.16/jdk.internal.misc.Unsafe.park(Native Method)
+2023-03-10T03:26:46.194764313Z  java.base@11.0.16/java.util.concurrent.locks.LockSupport.park(Unknown Source)
+2023-03-10T03:26:46.194769051Z  java.base@11.0.16/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(Unknown Source)
+2023-03-10T03:26:46.194786319Z  java.base@11.0.16/java.util.concurrent.LinkedBlockingQueue.take(Unknown Source)
+2023-03-10T03:26:46.194791220Z  java.base@11.0.16/java.util.concurrent.ThreadPoolExecutor.getTask(Unknown Source)
+2023-03-10T03:26:46.194795794Z  java.base@11.0.16/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+2023-03-10T03:26:46.194800211Z  java.base@11.0.16/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+2023-03-10T03:26:46.194804648Z  java.base@11.0.16/java.lang.Thread.run(Unknown Source)
+2023-03-10T03:26:46.213671601Z WARNING: An illegal reflective access operation has occurred
+2023-03-10T03:26:46.213698275Z WARNING: Illegal reflective access by org.apache.catalina.loader.WebappClassLoaderBase (jar:file:/maven/zuul-server.jar!/BOOT-INF/lib/tomcat-embed-core-9.0.12.jar!/) to field java.io.ObjectStreamClass$Caches.localDescs
+2023-03-10T03:26:46.213703980Z WARNING: Please consider reporting this to the maintainers of org.apache.catalina.loader.WebappClassLoaderBase
+2023-03-10T03:26:46.213708693Z WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+2023-03-10T03:26:46.213788797Z WARNING: All illegal access operations will be denied in a future release
+2023-03-10T03:26:46.226187154Z 2023-03-10 03:26:46.225  WARN 6 --- [           main] o.a.c.loader.WebappClassLoaderBase       : Failed to clear soft references from ObjectStreamClass$Caches for web application [ROOT]
+2023-03-10T03:26:46.226213773Z 
+2023-03-10T03:26:46.226218937Z java.lang.ClassCastException: class java.io.ObjectStreamClass$Caches$1 cannot be cast to class java.util.Map (java.io.ObjectStreamClass$Caches$1 and java.util.Map are in module java.base of loader 'bootstrap')
+2023-03-10T03:26:46.226223768Z 	at org.apache.catalina.loader.WebappClassLoaderBase.clearCache(WebappClassLoaderBase.java:2207) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.226228457Z 	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesObjectStreamClassCaches(WebappClassLoaderBase.java:2194) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.226233077Z 	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferences(WebappClassLoaderBase.java:1567) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.226237541Z 	at org.apache.catalina.loader.WebappClassLoaderBase.stop(WebappClassLoaderBase.java:1497) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.226242021Z 	at org.apache.catalina.loader.WebappLoader.stopInternal(WebappLoader.java:442) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.226246405Z 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:257) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.226250772Z 	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5367) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.226255192Z 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:257) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.226259554Z 	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1445) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.226273351Z 	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1434) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.226278182Z 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source) ~[na:na]
+2023-03-10T03:26:46.226282536Z 	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.226287036Z 	at java.base/java.util.concurrent.AbstractExecutorService.submit(Unknown Source) ~[na:na]
+2023-03-10T03:26:46.226292271Z 	at org.apache.catalina.core.ContainerBase.stopInternal(ContainerBase.java:1001) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.226296757Z 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:257) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.226301132Z 	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1445) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.226305513Z 	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1434) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.226309872Z 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source) ~[na:na]
+2023-03-10T03:26:46.226314137Z 	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.226318572Z 	at java.base/java.util.concurrent.AbstractExecutorService.submit(Unknown Source) ~[na:na]
+2023-03-10T03:26:46.226322834Z 	at org.apache.catalina.core.ContainerBase.stopInternal(ContainerBase.java:1001) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.226327171Z 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:257) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.226331504Z 	at org.apache.catalina.core.StandardService.stopInternal(StandardService.java:474) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.226335851Z 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:257) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.226340203Z 	at org.apache.catalina.core.StandardServer.stopInternal(StandardServer.java:791) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.226344610Z 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:257) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.226349005Z 	at org.apache.catalina.startup.Tomcat.stop(Tomcat.java:380) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.226353325Z 	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.stopTomcat(TomcatWebServer.java:247) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.226357749Z 	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.stopSilently(TomcatWebServer.java:235) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.226362201Z 	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:125) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.226370706Z 	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:86) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.226375830Z 	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:413) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.226380446Z 	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:174) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.226384951Z 	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:179) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.226389479Z 	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:152) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.226393974Z 	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:542) ~[spring-context-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.226398459Z 	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.226402986Z 	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:797) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.226407412Z 	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:421) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.226411809Z 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:340) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.226416215Z 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.226420631Z 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1279) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.226425493Z 	at com.otrs.ZuulServerApplication.main(ZuulServerApplication.java:14) ~[classes!/:0.0.1-zuul-server-SNAPSHOT]
+2023-03-10T03:26:46.226429891Z 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2023-03-10T03:26:46.226434209Z 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+2023-03-10T03:26:46.226438884Z 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+2023-03-10T03:26:46.226443284Z 	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+2023-03-10T03:26:46.226447598Z 	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) ~[zuul-server.jar:0.0.1-zuul-server-SNAPSHOT]
+2023-03-10T03:26:46.226452038Z 	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) ~[zuul-server.jar:0.0.1-zuul-server-SNAPSHOT]
+2023-03-10T03:26:46.226456380Z 	at org.springframework.boot.loader.Launcher.launch(Launcher.java:50) ~[zuul-server.jar:0.0.1-zuul-server-SNAPSHOT]
+2023-03-10T03:26:46.226465033Z 	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:51) ~[zuul-server.jar:0.0.1-zuul-server-SNAPSHOT]
+2023-03-10T03:26:46.226469834Z 
+2023-03-10T03:26:46.279966486Z 2023-03-10 03:26:46.277  WARN 6 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+2023-03-10T03:26:46.397523363Z 2023-03-10 03:26:46.397  INFO 6 --- [           main] ConditionEvaluationReportLoggingListener : 
+2023-03-10T03:26:46.397556587Z 
+2023-03-10T03:26:46.397563934Z Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-03-10T03:26:46.475323807Z 2023-03-10 03:26:46.465 ERROR 6 --- [           main] o.s.boot.SpringApplication               : Application run failed
+2023-03-10T03:26:46.475360696Z 
+2023-03-10T03:26:46.475367701Z org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+2023-03-10T03:26:46.475373840Z 	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:155) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.475380348Z 	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:542) ~[spring-context-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.475386183Z 	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.475392135Z 	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:797) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.475398232Z 	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:421) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.475404031Z 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:340) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.475409690Z 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.475416234Z 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1279) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.475422126Z 	at com.otrs.ZuulServerApplication.main(ZuulServerApplication.java:14) ~[classes!/:0.0.1-zuul-server-SNAPSHOT]
+2023-03-10T03:26:46.475427684Z 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2023-03-10T03:26:46.475433257Z 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+2023-03-10T03:26:46.475438787Z 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+2023-03-10T03:26:46.475458097Z 	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+2023-03-10T03:26:46.475465116Z 	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) ~[zuul-server.jar:0.0.1-zuul-server-SNAPSHOT]
+2023-03-10T03:26:46.475473463Z 	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) ~[zuul-server.jar:0.0.1-zuul-server-SNAPSHOT]
+2023-03-10T03:26:46.475479743Z 	at org.springframework.boot.loader.Launcher.launch(Launcher.java:50) ~[zuul-server.jar:0.0.1-zuul-server-SNAPSHOT]
+2023-03-10T03:26:46.475485298Z 	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:51) ~[zuul-server.jar:0.0.1-zuul-server-SNAPSHOT]
+2023-03-10T03:26:46.475490992Z Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+2023-03-10T03:26:46.475497107Z 	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:126) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.475502871Z 	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:86) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.475508962Z 	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:413) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.475514773Z 	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:174) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.475520515Z 	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:179) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.475526381Z 	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:152) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.475532558Z 	... 16 common frames omitted
+2023-03-10T03:26:46.475540211Z Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'servletEndpointRegistrar' defined in class path resource [org/springframework/boot/actuate/autoconfigure/endpoint/web/ServletEndpointManagementContextConfiguration$WebMvcServletEndpointManagementContextConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar]: Factory method 'servletEndpointRegistrar' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'routesEndpoint' defined in class path resource [org/springframework/cloud/netflix/zuul/ZuulProxyAutoConfiguration$EndpointConfiguration.class]: Unsatisfied dependency expressed through method 'routesEndpoint' parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'primaryRouteLocator' defined in class path resource [org/springframework/cloud/netflix/zuul/ZuulProxyAutoConfiguration.class]: Unsatisfied dependency expressed through method 'primaryRouteLocator' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'discoveryRouteLocator' defined in class path resource [org/springframework/cloud/netflix/zuul/ZuulProxyAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.cloud.netflix.zuul.filters.discovery.DiscoveryClientRouteLocator]: Factory method 'discoveryRouteLocator' threw exception; nested exception is java.lang.NoSuchMethodError: 'java.lang.String org.springframework.boot.autoconfigure.web.ServerProperties$Servlet.getServletPrefix()'
+2023-03-10T03:26:46.475560985Z 	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:625) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.475568488Z 	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:605) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.475574655Z 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1287) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.475582642Z 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1126) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.475589307Z 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.475595577Z 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.475601717Z 	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.475607835Z 	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.475614154Z 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.475620391Z 	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.475626559Z 	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:236) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.475632900Z 	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:224) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.475639148Z 	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addServletContextInitializerBeans(ServletContextInitializerBeans.java:100) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.475645436Z 	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:88) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.475661708Z 	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:250) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.475670919Z 	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:237) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.475677983Z 	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:54) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.475684419Z 	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5098) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.475690966Z 	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.475697069Z 	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1429) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.475703326Z 	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1419) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.475709768Z 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source) ~[na:na]
+2023-03-10T03:26:46.475716240Z 	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.475722860Z 	at java.base/java.util.concurrent.AbstractExecutorService.submit(Unknown Source) ~[na:na]
+2023-03-10T03:26:46.475729211Z 	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:944) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.475735947Z 	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:839) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.475741453Z 	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.475746856Z 	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1429) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.475752758Z 	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1419) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.475759127Z 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source) ~[na:na]
+2023-03-10T03:26:46.475765101Z 	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.475770888Z 	at java.base/java.util.concurrent.AbstractExecutorService.submit(Unknown Source) ~[na:na]
+2023-03-10T03:26:46.475777619Z 	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:944) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.475784011Z 	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:261) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.475790113Z 	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.475802612Z 	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:422) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.475809085Z 	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.475815641Z 	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:770) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.475822017Z 	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.475828370Z 	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:370) ~[tomcat-embed-core-9.0.12.jar!/:9.0.12]
+2023-03-10T03:26:46.475834648Z 	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:107) ~[spring-boot-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.475842993Z 	... 21 common frames omitted
+2023-03-10T03:26:46.475850288Z Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar]: Factory method 'servletEndpointRegistrar' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'routesEndpoint' defined in class path resource [org/springframework/cloud/netflix/zuul/ZuulProxyAutoConfiguration$EndpointConfiguration.class]: Unsatisfied dependency expressed through method 'routesEndpoint' parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'primaryRouteLocator' defined in class path resource [org/springframework/cloud/netflix/zuul/ZuulProxyAutoConfiguration.class]: Unsatisfied dependency expressed through method 'primaryRouteLocator' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'discoveryRouteLocator' defined in class path resource [org/springframework/cloud/netflix/zuul/ZuulProxyAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.cloud.netflix.zuul.filters.discovery.DiscoveryClientRouteLocator]: Factory method 'discoveryRouteLocator' threw exception; nested exception is java.lang.NoSuchMethodError: 'java.lang.String org.springframework.boot.autoconfigure.web.ServerProperties$Servlet.getServletPrefix()'
+2023-03-10T03:26:46.475862971Z 	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.475869579Z 	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:620) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.475875827Z 	... 61 common frames omitted
+2023-03-10T03:26:46.475883824Z Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'routesEndpoint' defined in class path resource [org/springframework/cloud/netflix/zuul/ZuulProxyAutoConfiguration$EndpointConfiguration.class]: Unsatisfied dependency expressed through method 'routesEndpoint' parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'primaryRouteLocator' defined in class path resource [org/springframework/cloud/netflix/zuul/ZuulProxyAutoConfiguration.class]: Unsatisfied dependency expressed through method 'primaryRouteLocator' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'discoveryRouteLocator' defined in class path resource [org/springframework/cloud/netflix/zuul/ZuulProxyAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.cloud.netflix.zuul.filters.discovery.DiscoveryClientRouteLocator]: Factory method 'discoveryRouteLocator' threw exception; nested exception is java.lang.NoSuchMethodError: 'java.lang.String org.springframework.boot.autoconfigure.web.ServerProperties$Servlet.getServletPrefix()'
+2023-03-10T03:26:46.475901414Z 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:767) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.475908617Z 	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:509) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.475915249Z 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1287) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.475921854Z 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1126) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.475928383Z 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.475934922Z 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.475941705Z 	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.475948204Z 	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.475954839Z 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.475961460Z 	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.475968846Z 	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1085) ~[spring-context-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.475975137Z 	at org.springframework.boot.actuate.endpoint.annotation.EndpointDiscoverer.createEndpointBean(EndpointDiscoverer.java:143) ~[spring-boot-actuator-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.475982414Z 	at org.springframework.boot.actuate.endpoint.annotation.EndpointDiscoverer.createEndpointBeans(EndpointDiscoverer.java:132) ~[spring-boot-actuator-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.475994140Z 	at org.springframework.boot.actuate.endpoint.annotation.EndpointDiscoverer.discoverEndpoints(EndpointDiscoverer.java:122) ~[spring-boot-actuator-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.476001740Z 	at org.springframework.boot.actuate.endpoint.annotation.EndpointDiscoverer.getEndpoints(EndpointDiscoverer.java:116) ~[spring-boot-actuator-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.476008322Z 	at org.springframework.boot.actuate.autoconfigure.endpoint.web.ServletEndpointManagementContextConfiguration$WebMvcServletEndpointManagementContextConfiguration.servletEndpointRegistrar(ServletEndpointManagementContextConfiguration.java:75) ~[spring-boot-actuator-autoconfigure-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.476014843Z 	at org.springframework.boot.actuate.autoconfigure.endpoint.web.ServletEndpointManagementContextConfiguration$WebMvcServletEndpointManagementContextConfiguration$$EnhancerBySpringCGLIB$$46f0613b.CGLIB$servletEndpointRegistrar$0(<generated>) ~[spring-boot-actuator-autoconfigure-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.476021428Z 	at org.springframework.boot.actuate.autoconfigure.endpoint.web.ServletEndpointManagementContextConfiguration$WebMvcServletEndpointManagementContextConfiguration$$EnhancerBySpringCGLIB$$46f0613b$$FastClassBySpringCGLIB$$ed2c0e59.invoke(<generated>) ~[spring-boot-actuator-autoconfigure-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.476028343Z 	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244) ~[spring-core-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476034186Z 	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363) ~[spring-context-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476041933Z 	at org.springframework.boot.actuate.autoconfigure.endpoint.web.ServletEndpointManagementContextConfiguration$WebMvcServletEndpointManagementContextConfiguration$$EnhancerBySpringCGLIB$$46f0613b.servletEndpointRegistrar(<generated>) ~[spring-boot-actuator-autoconfigure-2.1.0.M4.jar!/:2.1.0.M4]
+2023-03-10T03:26:46.476049797Z 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2023-03-10T03:26:46.476056195Z 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+2023-03-10T03:26:46.476062579Z 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+2023-03-10T03:26:46.476069208Z 	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+2023-03-10T03:26:46.476075655Z 	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476081696Z 	... 62 common frames omitted
+2023-03-10T03:26:46.476087525Z Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'primaryRouteLocator' defined in class path resource [org/springframework/cloud/netflix/zuul/ZuulProxyAutoConfiguration.class]: Unsatisfied dependency expressed through method 'primaryRouteLocator' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'discoveryRouteLocator' defined in class path resource [org/springframework/cloud/netflix/zuul/ZuulProxyAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.cloud.netflix.zuul.filters.discovery.DiscoveryClientRouteLocator]: Factory method 'discoveryRouteLocator' threw exception; nested exception is java.lang.NoSuchMethodError: 'java.lang.String org.springframework.boot.autoconfigure.web.ServerProperties$Servlet.getServletPrefix()'
+2023-03-10T03:26:46.476176491Z 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:767) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476185792Z 	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:509) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476192252Z 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1287) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476198381Z 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1126) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476204174Z 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476210080Z 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476215949Z 	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476222058Z 	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476228374Z 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476234469Z 	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476240941Z 	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:273) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476247288Z 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1241) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476253583Z 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1168) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476260823Z 	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:855) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476267156Z 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:758) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476280248Z 	... 87 common frames omitted
+2023-03-10T03:26:46.476327019Z Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'discoveryRouteLocator' defined in class path resource [org/springframework/cloud/netflix/zuul/ZuulProxyAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.cloud.netflix.zuul.filters.discovery.DiscoveryClientRouteLocator]: Factory method 'discoveryRouteLocator' threw exception; nested exception is java.lang.NoSuchMethodError: 'java.lang.String org.springframework.boot.autoconfigure.web.ServerProperties$Servlet.getServletPrefix()'
+2023-03-10T03:26:46.476337157Z 	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:625) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476343052Z 	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:456) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476348824Z 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1287) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476355027Z 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1126) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476361282Z 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:538) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476368162Z 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476374389Z 	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476380239Z 	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476386329Z 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476392921Z 	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476399059Z 	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:273) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476404818Z 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1457) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476410997Z 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1421) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476424713Z 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1312) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476431232Z 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1199) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476437400Z 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1168) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476444414Z 	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:855) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476451853Z 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:758) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476458809Z 	... 101 common frames omitted
+2023-03-10T03:26:46.476464840Z Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.cloud.netflix.zuul.filters.discovery.DiscoveryClientRouteLocator]: Factory method 'discoveryRouteLocator' threw exception; nested exception is java.lang.NoSuchMethodError: 'java.lang.String org.springframework.boot.autoconfigure.web.ServerProperties$Servlet.getServletPrefix()'
+2023-03-10T03:26:46.476471890Z 	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476478571Z 	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:620) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476485340Z 	... 118 common frames omitted
+2023-03-10T03:26:46.476491799Z Caused by: java.lang.NoSuchMethodError: 'java.lang.String org.springframework.boot.autoconfigure.web.ServerProperties$Servlet.getServletPrefix()'
+2023-03-10T03:26:46.476498725Z 	at org.springframework.cloud.netflix.zuul.ZuulProxyAutoConfiguration.discoveryRouteLocator(ZuulProxyAutoConfiguration.java:91) ~[spring-cloud-netflix-zuul-2.0.1.RELEASE.jar!/:2.0.1.RELEASE]
+2023-03-10T03:26:46.476505849Z 	at org.springframework.cloud.netflix.zuul.ZuulProxyAutoConfiguration$$EnhancerBySpringCGLIB$$6c6ba4d0.CGLIB$discoveryRouteLocator$2(<generated>) ~[spring-cloud-netflix-zuul-2.0.1.RELEASE.jar!/:2.0.1.RELEASE]
+2023-03-10T03:26:46.476513112Z 	at org.springframework.cloud.netflix.zuul.ZuulProxyAutoConfiguration$$EnhancerBySpringCGLIB$$6c6ba4d0$$FastClassBySpringCGLIB$$4a883586.invoke(<generated>) ~[spring-cloud-netflix-zuul-2.0.1.RELEASE.jar!/:2.0.1.RELEASE]
+2023-03-10T03:26:46.476519501Z 	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244) ~[spring-core-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476525517Z 	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363) ~[spring-context-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476539779Z 	at org.springframework.cloud.netflix.zuul.ZuulProxyAutoConfiguration$$EnhancerBySpringCGLIB$$6c6ba4d0.discoveryRouteLocator(<generated>) ~[spring-cloud-netflix-zuul-2.0.1.RELEASE.jar!/:2.0.1.RELEASE]
+2023-03-10T03:26:46.476547910Z 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+2023-03-10T03:26:46.476554638Z 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+2023-03-10T03:26:46.476561264Z 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+2023-03-10T03:26:46.476568004Z 	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+2023-03-10T03:26:46.476574443Z 	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.1.0.RELEASE.jar!/:5.1.0.RELEASE]
+2023-03-10T03:26:46.476581620Z 	... 119 common frames omitted
+2023-03-10T03:26:46.476588015Z 
+
