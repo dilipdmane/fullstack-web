@@ -6,8 +6,7 @@
 	<parent>
 		<groupId>com.vibhu.demo</groupId>
 		<artifactId>microservices</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-		<relativePath></relativePath>
+		<version>0.0.1-SNAPSHOT</version>		
 	</parent>
 	<groupId>com.vibhuti</groupId>
 	<artifactId>config-server</artifactId>

@@ -6,8 +6,7 @@
 	<parent>
 		<groupId>com.vibhu.demo</groupId>
 		<artifactId>microservices</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-		<relativePath></relativePath>
+		<version>0.0.1-SNAPSHOT</version>		
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>restaurantservice</artifactId>
@@ -203,7 +202,7 @@
 			<name>Spring Snapshots</name>
 			<url>https://repo.spring.io/snapshot</url>
 			<snapshots>
-				<enabled>true</enabled>
+				<enabled>false</enabled>
 			</snapshots>
 		</repository>
 		<repository>
@@ -222,7 +221,7 @@
 			<name>Spring Snapshots</name>
 			<url>https://repo.spring.io/snapshot</url>
 			<snapshots>
-				<enabled>true</enabled>
+				<enabled>false</enabled>
 			</snapshots>
 		</pluginRepository>
 		<pluginRepository>

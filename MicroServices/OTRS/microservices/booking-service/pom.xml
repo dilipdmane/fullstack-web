@@ -3,18 +3,17 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
+	<parent>
+		<groupId>com.vibhu.demo</groupId>
+		<artifactId>microservices</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
 	<groupId>com.vibhuti</groupId>
 	<artifactId>booking-service</artifactId>
 	<version>0.0.1-booking-service-SNAPSHOT</version>
 	<name>booking-service</name>
 	<description>Webservice for booking online table </description>
-	<parent>
-		<groupId>com.vibhu.demo</groupId>
-		<artifactId>microservices</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-		<relativePath></relativePath>
-	</parent>
+	
 
 	<properties>
 		<java.version>11</java.version>
