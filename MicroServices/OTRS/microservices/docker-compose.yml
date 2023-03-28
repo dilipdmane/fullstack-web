@@ -24,7 +24,11 @@ services:
     ports:
       - "8081:8080"
           
-
-
+  api-service:
+    image: localhost:5000/dilipwork/api-service:0.0.1-api-service-SNAPSHOT
+    ports:
+      - "8048:8080"
+    depends_on :
+      - restaurant-service
       
       

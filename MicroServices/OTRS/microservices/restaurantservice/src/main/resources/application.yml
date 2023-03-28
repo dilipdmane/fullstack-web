@@ -27,7 +27,7 @@ eureka:
   instance:
     lease-renewal-interval-in-seconds: 3
     lease-expiration-duration-in-seconds: 2
-    ip-address: 192.168.99.100
+    ip-address: 192.168.99.101
     metadata-map:
       instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
   client:
@@ -63,7 +63,7 @@ eureka:
     instanceInfoReplicationIntervalSeconds: 5
     initialInstanceInfoReplicationIntervalSeconds: 5
     serviceUrl:
-      defaultZone: http://192.168.99.100:8761/eureka/
+      defaultZone: http://192.168.99.101:8761/eureka/
       fetchRegistry: true
       healthcheck:
         enabled: true 

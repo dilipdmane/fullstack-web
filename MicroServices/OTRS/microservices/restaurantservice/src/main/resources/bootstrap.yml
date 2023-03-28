@@ -19,6 +19,6 @@ spring:
     auto: false
   cloud :
     config :
-      uri: http://192.168.99.100:8088
+      uri: http://192.168.99.101:8088
       fail-fast: true
       label: master
